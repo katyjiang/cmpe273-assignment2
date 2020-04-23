@@ -14,6 +14,7 @@ PORT="5000"
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['JSON_SORT_KEYS'] = False # Prevent sort
 
 # Create folder named "files" to save the files upload by user
 def createUploadFolder():
@@ -100,5 +101,6 @@ def allowed_file(filename):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Turn debug mode to True if you want to test it
+    app.run(debug=False)
     
