@@ -1,0 +1,39 @@
+katy-macbookpro3:assignment2 katy$ curl -i -H "Content-Type: application/json" --data @test-data.json http://localhost:5000/api/tests
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 505
+Server: Werkzeug/1.0.1 Python/3.8.1
+Date: Thu, 30 Apr 2020 19:50:32 GMT
+
+{"subject":"Math","answer_keys":{"1":"A","2":"B","3":"C","4":"D","5":"C","6":"D","7":"C","8":"B","9":"D","10":"E","11":"A","12":"B","13":"C","14":"E","15":"C","16":"A","17":"B","18":"D","19":"E","20":"A","21":"B","22":"D","23":"D","24":"B","25":"C","26":"D","27":"A","28":"C","29":"E","30":"B","31":"D","32":"B","33":"A","34":"E","35":"B","36":"D","37":"C","38":"A","39":"D","40":"B","41":"E","42":"C","43":"D","44":"B","45":"D","46":"C","47":"B","48":"C","49":"D","50":"C"},"test_id":1,"submissions":[]}
+
+
+
+
+
+
+katy-macbookpro3:assignment2 katy$ curl -i -X POST -F 'file=@submission_white.jpg' http://localhost:5000/api/tests/1/scantrons 
+HTTP/1.1 100 Continue
+
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 1864
+Server: Werkzeug/1.0.1 Python/3.8.1
+Date: Thu, 30 Apr 2020 19:51:13 GMT
+
+{"subject":"Math","score":24,"result":{"1":{"actual":"A","expected":"A"},"2":{"actual":"A","expected":"B"},"3":{"actual":"C","expected":"C"},"4":{"actual":"C","expected":"D"},"5":{"actual":"E","expected":"C"},"6":{"actual":"C","expected":"D"},"7":{"actual":"C","expected":"C"},"8":{"actual":"A","expected":"B"},"9":{"actual":"C","expected":"D"},"10":{"actual":"D","expected":"E"},"11":{"actual":"A","expected":"A"},"12":{"actual":"B","expected":"B"},"13":{"actual":"C","expected":"C"},"14":{"actual":"E","expected":"E"},"15":{"actual":"E","expected":"C"},"16":{"actual":"A","expected":"A"},"17":{"actual":"B","expected":"B"},"18":{"actual":"D","expected":"D"},"19":{"actual":"E","expected":"E"},"20":{"actual":"A","expected":"A"},"21":{"actual":"B","expected":"B"},"22":{"actual":"C","expected":"D"},"23":{"actual":"C","expected":"D"},"24":{"actual":"B","expected":"B"},"25":{"actual":"E","expected":"C"},"26":{"actual":"C","expected":"D"},"27":{"actual":"A","expected":"A"},"28":{"actual":"D","expected":"C"},"29":{"actual":"C","expected":"E"},"30":{"actual":"A","expected":"B"},"31":{"actual":"D","expected":"D"},"32":{"actual":"A","expected":"B"},"33":{"actual":"A","expected":"A"},"34":{"actual":"E","expected":"E"},"35":{"actual":"B","expected":"B"},"36":{"actual":"C","expected":"D"},"37":{"actual":"C","expected":"C"},"38":{"actual":"A","expected":"A"},"39":{"actual":"C","expected":"D"},"40":{"actual":"A","expected":"B"},"41":{"actual":"C","expected":"E"},"42":{"actual":"C","expected":"C"},"43":{"actual":"C","expected":"D"},"44":{"actual":"A","expected":"B"},"45":{"actual":"D","expected":"D"},"46":{"actual":"E","expected":"C"},"47":{"actual":"A","expected":"B"},"48":{"actual":"C","expected":"C"},"49":{"actual":"C","expected":"D"},"50":{"actual":"E","expected":"C"}},"scantron_url":"http://127.0.0.1:5000/files/submission_white.jpg","scantron_id":1}
+
+
+
+
+
+
+
+katy-macbookpro3:assignment2 katy$ curl -i -X GET http://localhost:5000/api/tests/1
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 2368
+Server: Werkzeug/1.0.1 Python/3.8.1
+Date: Thu, 30 Apr 2020 19:51:57 GMT
+
+{"test_id":1,"subject":"Math","answer_keys":{"1":"A","2":"B","3":"C","4":"D","5":"C","6":"D","7":"C","8":"B","9":"D","10":"E","11":"A","12":"B","13":"C","14":"E","15":"C","16":"A","17":"B","18":"D","19":"E","20":"A","21":"B","22":"D","23":"D","24":"B","25":"C","26":"D","27":"A","28":"C","29":"E","30":"B","31":"D","32":"B","33":"A","34":"E","35":"B","36":"D","37":"C","38":"A","39":"D","40":"B","41":"E","42":"C","43":"D","44":"B","45":"D","46":"C","47":"B","48":"C","49":"D","50":"C"},"submissions":[{"scantron_id":1,"scantron_url":"http://127.0.0.1:5000/files/submission_white.jpg","subject":"Math","score":24,"result":{"1":{"actual":"A","expected":"A"},"2":{"actual":"A","expected":"B"},"3":{"actual":"C","expected":"C"},"4":{"actual":"C","expected":"D"},"5":{"actual":"E","expected":"C"},"6":{"actual":"C","expected":"D"},"7":{"actual":"C","expected":"C"},"8":{"actual":"A","expected":"B"},"9":{"actual":"C","expected":"D"},"10":{"actual":"D","expected":"E"},"11":{"actual":"A","expected":"A"},"12":{"actual":"B","expected":"B"},"13":{"actual":"C","expected":"C"},"14":{"actual":"E","expected":"E"},"15":{"actual":"E","expected":"C"},"16":{"actual":"A","expected":"A"},"17":{"actual":"B","expected":"B"},"18":{"actual":"D","expected":"D"},"19":{"actual":"E","expected":"E"},"20":{"actual":"A","expected":"A"},"21":{"actual":"B","expected":"B"},"22":{"actual":"C","expected":"D"},"23":{"actual":"C","expected":"D"},"24":{"actual":"B","expected":"B"},"25":{"actual":"E","expected":"C"},"26":{"actual":"C","expected":"D"},"27":{"actual":"A","expected":"A"},"28":{"actual":"D","expected":"C"},"29":{"actual":"C","expected":"E"},"30":{"actual":"A","expected":"B"},"31":{"actual":"D","expected":"D"},"32":{"actual":"A","expected":"B"},"33":{"actual":"A","expected":"A"},"34":{"actual":"E","expected":"E"},"35":{"actual":"B","expected":"B"},"36":{"actual":"C","expected":"D"},"37":{"actual":"C","expected":"C"},"38":{"actual":"A","expected":"A"},"39":{"actual":"C","expected":"D"},"40":{"actual":"A","expected":"B"},"41":{"actual":"C","expected":"E"},"42":{"actual":"C","expected":"C"},"43":{"actual":"C","expected":"D"},"44":{"actual":"A","expected":"B"},"45":{"actual":"D","expected":"D"},"46":{"actual":"E","expected":"C"},"47":{"actual":"A","expected":"B"},"48":{"actual":"C","expected":"C"},"49":{"actual":"C","expected":"D"},"50":{"actual":"E","expected":"C"}}}]}
